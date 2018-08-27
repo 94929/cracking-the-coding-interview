@@ -8,16 +8,11 @@ import sys
 def is_unique(s):
     """ TIME: O(N) SPACE: O(1) """
 
-    if len(s) > 128: return False
-
-    charset = [False] * 128
-
+    charset = {}
     for c in s:
-        if charset[ord(c) - ord('a')]:
+        if c in charset:
             return False
-        else:
-            charset[ord(c) - ord('a')] = True
-
+        charset[c] = True
     return True
 
 
